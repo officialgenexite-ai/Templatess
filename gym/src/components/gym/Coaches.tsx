@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { coaches } from "@/data/gym";
 
 export function Coaches() {
@@ -16,16 +17,27 @@ export function Coaches() {
           {coaches.map((coach) => (
             <article
               key={coach.name}
-              className="border border-border bg-card p-6 text-center shadow-card transition-colors hover:border-primary"
+              className="group overflow-hidden border border-border bg-card shadow-card transition-transform hover:-translate-y-1"
             >
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border-2 border-primary font-display text-2xl text-primary">
-                {coach.initials}
+              <div className="overflow-hidden">
+                <Image
+                  src={coach.image}
+                  alt={coach.imageAlt}
+                  loading="lazy"
+                  width={1024}
+                  height={768}
+                  className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
-              <h3 className="mt-5 font-display text-xl uppercase text-foreground">{coach.name}</h3>
-              <p className="mt-1 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                {coach.role}
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{coach.bio}</p>
+              <div className="p-6">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                  {coach.role}
+                </p>
+                <h3 className="mt-2 font-display text-2xl uppercase text-foreground transition-colors group-hover:text-primary">
+                  {coach.name}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{coach.bio}</p>
+              </div>
             </article>
           ))}
         </div>

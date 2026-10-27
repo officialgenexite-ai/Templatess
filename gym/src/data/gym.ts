@@ -1,5 +1,9 @@
 import type { StaticImageData } from "next/image";
 import heroGym from "../../assets/hero-gym.jpg";
+import coachSessionImage from "../../assets/images.jpeg";
+import coachLungeImage from "../../assets/images1.jpeg";
+import conditioningImage from "../../assets/images2.jpeg";
+import kettlebellCoachingImage from "../../assets/istockphoto-1956798859-612x612.jpg";
 import boxingImage from "../../assets/program-boxing.jpg";
 import hiitImage from "../../assets/program-hiit.jpg";
 import strengthImage from "../../assets/program-strength.jpg";
@@ -53,10 +57,38 @@ export const programs: { title: string; image: StaticImageData; tags: string[]; 
 ];
 
 export const coaches = [
-  { name: "Hamza Khan", initials: "HK", role: "Strength Coach", bio: "Powerlifting coach focused on strong foundations and steady progress." },
-  { name: "Ayesha Malik", initials: "AM", role: "Boxing Coach", bio: "Technical boxing coach who makes sharp fundamentals accessible to all." },
-  { name: "Bilal Ahmed", initials: "BA", role: "Conditioning Coach", bio: "Builds hard-working, sustainable conditioning for everyday athletes." },
-  { name: "Sara Javed", initials: "SJ", role: "Performance Coach", bio: "Helps members train with purpose, recover well, and stay consistent." },
+  {
+    name: "Hamza Khan",
+    initials: "HK",
+    role: "Strength Coach",
+    bio: "Powerlifting coach focused on strong foundations and steady progress.",
+    image: coachLungeImage,
+    imageAlt: "Coach helping an athlete perform a lunge beside a barbell",
+  },
+  {
+    name: "Ayesha Malik",
+    initials: "AM",
+    role: "Boxing Coach",
+    bio: "Technical boxing coach who makes sharp fundamentals accessible to all.",
+    image: coachSessionImage,
+    imageAlt: "Trainer checking in with an athlete after a workout",
+  },
+  {
+    name: "Bilal Ahmed",
+    initials: "BA",
+    role: "Conditioning Coach",
+    bio: "Builds hard-working, sustainable conditioning for everyday athletes.",
+    image: conditioningImage,
+    imageAlt: "Athletes doing floor-based conditioning at the gym",
+  },
+  {
+    name: "Sara Javed",
+    initials: "SJ",
+    role: "Performance Coach",
+    bio: "Helps members train with purpose, recover well, and stay consistent.",
+    image: kettlebellCoachingImage,
+    imageAlt: "Coach guiding an athlete through a kettlebell exercise",
+  },
 ];
 
 export const plans = [

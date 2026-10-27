@@ -1,6 +1,6 @@
 "use client";
 
-import { contactInfo, storyPoints } from "@/data/gym";
+import { brand, contactInfo, navLinks, storyPoints } from "@/data/gym";
 import { useState, type FormEvent } from "react";
 
 export function Story() {
@@ -104,7 +104,7 @@ export function Contact() {
               </h3>
               <p className="mt-3 text-muted-foreground">
                 {submissionState === "success"
-                  ? "We'll call you within 24 hours to book your first free session."
+                  ? "We'll inform you within 24 hours about the program you applied for."
                   : "Your request is saved, but we couldn't confirm the email notification. Please call us to follow up."}
               </p>
             </div>
@@ -195,12 +195,59 @@ export function Contact() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-10">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-sm text-muted-foreground sm:flex-row sm:px-6 lg:px-8">
-        <p className="font-display text-lg uppercase text-foreground">
-          GRINDHAUS <span className="text-primary">GYM</span>
-        </p>
-        <p>© 2026 Grindhaus Gym. Train hard, recover harder.</p>
+    <footer className="border-t border-border">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-8">
+        <div>
+          <a href="#top" className="font-display text-lg uppercase text-foreground">
+            {brand.name} <span className="text-primary">{brand.suffix}</span>
+          </a>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+            {brand.tagline}. Expert coaching, honest work, and a crew that keeps showing up.
+          </p>
+        </div>
+
+        <nav aria-label="Footer navigation">
+          <h2 className="font-display text-xs uppercase text-foreground">Quick Links</h2>
+          <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a className="transition-colors hover:text-primary" href={link.href}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a className="transition-colors hover:text-primary" href="#contact">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 className="font-display text-xs uppercase text-foreground">Contact</h2>
+          <address className="mt-4 space-y-3 text-sm not-italic text-muted-foreground">
+            <p>{contactInfo.address}</p>
+            <p>
+              <a className="transition-colors hover:text-primary" href={`tel:${contactInfo.phone}`}>
+                {contactInfo.phone}
+              </a>
+            </p>
+            <p>
+              <a className="transition-colors hover:text-primary" href={`mailto:${contactInfo.email}`}>
+                {contactInfo.email}
+              </a>
+            </p>
+            <p className="text-xs leading-relaxed">{contactInfo.hours}</p>
+          </address>
+        </div>
+      </div>
+
+      <div className="border-t border-border">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          <p>© 2026 {brand.name} {brand.suffix}. All rights reserved.</p>
+          <p>{contactInfo.address}</p>
+        </div>
       </div>
     </footer>
   );

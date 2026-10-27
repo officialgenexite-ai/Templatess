@@ -2,6 +2,20 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Configure the database and contact email
+
+Copy `.env.example` to `.env.local` and set `MONGO_URI` to your MongoDB connection string.
+
+For Gmail notifications, set `EMAIL_USER` to the full Gmail address and `EMAIL_PASS` to a Google
+App Password, not the normal Google account password. App Passwords require 2-Step Verification
+on the Google account. Create one in the Google Account security settings, then enter the generated
+password without spaces. Use `smtp.gmail.com` on port `465` for SSL, or port `587` for STARTTLS.
+Set `CONTACT_EMAIL_TO` to the inbox that should receive inquiries; it can be the same as
+`EMAIL_USER`.
+
+After changing environment variables, restart the development server. In production, update the
+deployment's environment variables and redeploy. Never commit `.env.local` or share the App Password.
+
 First, run the development server:
 
 ```bash
